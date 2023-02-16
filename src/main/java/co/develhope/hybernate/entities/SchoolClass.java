@@ -15,6 +15,9 @@ public class SchoolClass {
     @Column(nullable = false)
     private String description;
 
+    @OneToMany(mappedBy = "schoolClass", fetch = FetchType.LAZY)
+    private List<Enrollment> enrollments;
+
     public long getId() {
         return id;
     }
@@ -37,5 +40,13 @@ public class SchoolClass {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Enrollment> getEnrollments() {
+        return enrollments;
+    }
+
+    public void setEnrollments(List<Enrollment> enrollments) {
+        this.enrollments = enrollments;
     }
 }

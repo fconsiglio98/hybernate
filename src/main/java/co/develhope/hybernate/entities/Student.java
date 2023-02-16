@@ -17,6 +17,10 @@ public class Student {
     @Column(unique = true, nullable = false)
     private String email;
 
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
+    private List<Enrollment> enrollments;
+
+
     public long getId() {
         return id;
     }
@@ -47,5 +51,13 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Enrollment> getEnrollments() {
+        return enrollments;
+    }
+
+    public void setEnrollments(List<Enrollment> enrollments) {
+        this.enrollments = enrollments;
     }
 }

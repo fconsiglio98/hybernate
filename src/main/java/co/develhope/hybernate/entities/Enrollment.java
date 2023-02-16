@@ -10,8 +10,10 @@ public class Enrollment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "student_id")
     private Student student;
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "schoolClass_id")
     private SchoolClass schoolClass;
 
     public long getId() {
